@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+	@apply w-full h-full;
+}
+.info-field {
+	@apply border-b-2 mb-4 outline-none pl-2 pb-1;
+}
+.css-9de6kd-MuiButtonBase-root-MuiButton-root {
+	padding: 0px !important;
+}
+.css-1g86afo-MuiStepIcon-text {
+	font-size: 16px !important;
+}
+.css-3hpdci-MuiSvgIcon-root-MuiStepIcon-root {
+	width: 28px !important;
+	height: 28px !important;
+}
+.css-12eb3rq-MuiStepLabel-label {
+	font-size: 18px !important;
+}
