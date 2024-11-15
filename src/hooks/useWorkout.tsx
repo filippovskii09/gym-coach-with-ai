@@ -17,7 +17,7 @@ const useWorkout = () => {
   const { user } = useAuth();
 
   const addExerciseField = () => {
-    setExercises([...exercises, { name: "", sets: "", weight: "", reps: "" }]);
+    setExercises([...exercises, { id: Date.now(), name: "", sets: "", weight: "", reps: "" }]);
   };
 
   const handleInputChange = (index: number, field: keyof Exercise, value: string) => {
@@ -50,7 +50,7 @@ const useWorkout = () => {
       });
       console.log("Тренування збережено!");
       setWorkoutName("");
-      setExercises([{ name: "", sets: "", weight: "", reps: "" }]);
+      setExercises([{ id: null, name: "", sets: "", weight: "", reps: "" }]);
       localStorage.removeItem("workoutData"); // Очищення localStorage після збереження
     } catch (error) {
       console.error("Помилка при збереженні тренування:", error);

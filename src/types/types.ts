@@ -1,4 +1,5 @@
 export type Exercise = {
+	id: number | null;
   name: string;
   sets: string;
   weight: string;
