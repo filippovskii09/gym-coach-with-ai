@@ -1,0 +1,21 @@
+{
+  "name": "Gym Coach App",
+  "short_name": "GymCoach",
+  "description": "Your personal gym workout assistant",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "/public/icons/training-gym-svgrepo-com.svg",
+      "sizes": "192x192",
+      "type": "image/svg"
+    },
+    {
+      "src": "/public/icons/training-gym-svgrepo-com.svg",
+      "sizes": "512x512",
+      "type": "image/svg"
+    }
+  ]
+}

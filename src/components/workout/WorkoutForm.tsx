@@ -1,5 +1,5 @@
-import { RemoveIcon } from "../icons/RemoveIcon";
-import useWorkout from "@/hooks/useWorkout";
+import { RemoveIcon } from '../icons/RemoveIcon';
+import useWorkout from '@/hooks/useWorkout';
 
 const CreateWorkout = () => {
   const {
@@ -27,50 +27,54 @@ const CreateWorkout = () => {
       {exercises.map((exercise, index) => (
         <div
           key={index}
-          className="flex flex-col gap-2 mb-5 md:flex-row md:gap-4 items-center">
+          className="flex flex-col gap-2 mb-5 md:flex-row md:gap-4 items-center"
+        >
           <input
             type="text"
             placeholder="Назва вправи"
             value={exercise.name}
-            onChange={(e) => handleInputChange(index, "name", e.target.value)}
+            onChange={(e) => handleInputChange(index, 'name', e.target.value)}
             className="flex-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full"
           />
           <input
             type="number"
             placeholder="Кількість підходів"
             value={exercise.sets}
-            onChange={(e) => handleInputChange(index, "sets", e.target.value)}
+            onChange={(e) => handleInputChange(index, 'sets', e.target.value)}
             className="md:w-20 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full"
           />
           <input
             type="number"
             placeholder="Вага (кг)"
             value={exercise.weight}
-            onChange={(e) => handleInputChange(index, "weight", e.target.value)}
+            onChange={(e) => handleInputChange(index, 'weight', e.target.value)}
             className="md:w-20 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full"
           />
           <input
             type="number"
             placeholder="Повторення"
             value={exercise.reps}
-            onChange={(e) => handleInputChange(index, "reps", e.target.value)}
+            onChange={(e) => handleInputChange(index, 'reps', e.target.value)}
             className="md:w-20 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full"
           />
           <button
             onClick={() => handleDeleteExercise(index)}
-            className="w-full md:w-auto bg-red-500 text-white p-2 rounded-md hover:bg-red-600 transition-transform transform hover:scale-105 flex items-center justify-center">
+            className="w-full md:w-auto bg-red-500 text-white p-2 rounded-md hover:bg-red-600 transition-transform transform hover:scale-105 flex items-center justify-center"
+          >
             <RemoveIcon />
           </button>
         </div>
       ))}
       <button
         onClick={addExerciseField}
-        className="w-full p-3 mt-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-colors">
+        className="w-full p-3 mt-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-colors"
+      >
         ➕ Додати вправу
       </button>
       <button
         onClick={saveWorkout}
-        className="w-full p-3 mt-4 mb-12 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors">
+        className="w-full p-3 mt-4 mb-12 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
+      >
         Зберегти тренування
       </button>
     </div>

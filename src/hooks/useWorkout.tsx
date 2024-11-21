@@ -1,29 +1,29 @@
-import { useEffect, useState } from "react";
-import useAuth from "./useAuth";
-import { arrayUnion, doc, updateDoc } from "firebase/firestore";
-import { db } from "@/firebase/firebase";
-import { Exercise } from "@/types/types";
-import { useGetUserWorkoutsQuery } from "@/features/apiSlice";
+import { useEffect, useState } from 'react';
+import useAuth from './useAuth';
+import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
+import { db } from '@/firebase/firebase';
+import { Exercise } from '@/types/types';
+import { useGetUserWorkoutsQuery } from '@/features/apiSlice';
 
 const useWorkout = () => {
   const [exercises, setExercises] = useState<Exercise[]>(() => {
-    const savedData = localStorage.getItem("workoutData");
+    const savedData = localStorage.getItem('workoutData');
     return savedData
       ? JSON.parse(savedData).exercises
-      : [{ name: "", sets: "", weight: "", reps: "" }];
+      : [{ name: '', sets: '', weight: '', reps: '' }];
   });
   const [workoutName, setWorkoutName] = useState<string>(() => {
-    const savedData = localStorage.getItem("workoutData");
-    return savedData ? JSON.parse(savedData).workoutName : "";
+    const savedData = localStorage.getItem('workoutData');
+    return savedData ? JSON.parse(savedData).workoutName : '';
   });
 
   const { user } = useAuth();
-  const { refetch } = useGetUserWorkoutsQuery(user?.uid || "", { skip: !user });
+  const { refetch } = useGetUserWorkoutsQuery(user?.uid || '', { skip: !user });
 
   const addExerciseField = () => {
     setExercises([
       ...exercises,
-      { id: Date.now(), name: "", sets: "", weight: "", reps: "" },
+      { id: Date.now(), name: '', sets: '', weight: '', reps: '' },
     ]);
   };
 
@@ -44,7 +44,7 @@ const useWorkout = () => {
 
   const saveWorkout = async () => {
     if (!user) {
-      console.error("Користувач не авторизований");
+      console.error('Користувач не авторизований');
       return;
     }
 
@@ -55,23 +55,23 @@ const useWorkout = () => {
     };
 
     try {
-      const userDocRef = doc(db, "users", user.uid);
+      const userDocRef = doc(db, 'users', user.uid);
       await updateDoc(userDocRef, {
         workouts: arrayUnion(workout),
       });
-      console.log("Тренування збережено!");
-      setWorkoutName("");
-      setExercises([{ id: null, name: "", sets: "", weight: "", reps: "" }]);
-      localStorage.removeItem("workoutData"); // Очищення localStorage після збереження
+      console.log('Тренування збережено!');
+      setWorkoutName('');
+      setExercises([{ id: null, name: '', sets: '', weight: '', reps: '' }]);
+      localStorage.removeItem('workoutData'); // Очищення localStorage після збереження
       refetch();
     } catch (error) {
-      console.error("Помилка при збереженні тренування:", error);
+      console.error('Помилка при збереженні тренування:', error);
     }
   };
 
   useEffect(() => {
     localStorage.setItem(
-      "workoutData",
+      'workoutData',
       JSON.stringify({ workoutName, exercises })
     );
   }, [workoutName, exercises]);

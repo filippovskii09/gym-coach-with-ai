@@ -1,9 +1,7 @@
-import GoogleAuth from "../components/auth/GoogleAuth"
+import GoogleAuth from '../components/auth/GoogleAuth';
 
 const AuthView = () => {
-	return (
-		<GoogleAuth/>
-	)
-}
+  return <GoogleAuth />;
+};
 
-export default AuthView
+export default AuthView;

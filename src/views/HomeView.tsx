@@ -1,5 +1,5 @@
-import WorkoutList from "@/components/workout/WorkoutList";
-import { Link } from "react-router-dom";
+import WorkoutList from '@/components/workout/WorkoutList';
+import { Link } from 'react-router-dom';
 
 const HomeView = () => {
   return (

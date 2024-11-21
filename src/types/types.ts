@@ -1,5 +1,5 @@
 export type Exercise = {
-	id: number | null;
+  id: number | null;
   name: string;
   sets: string;
   weight: string;
@@ -7,5 +7,5 @@ export type Exercise = {
 };
 
 export type ClassProps = {
-	className?: string;
-}
+  className?: string;
+};

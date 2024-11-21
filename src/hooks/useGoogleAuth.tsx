@@ -1,7 +1,7 @@
-import { signInWithPopup } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-import { auth, googleProvider } from "../firebase/firebase";
-import { useGoogleSignInMutation } from "../features/apiSlice";
+import { signInWithPopup } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import { auth, googleProvider } from '../firebase/firebase';
+import { useGoogleSignInMutation } from '../features/apiSlice';
 
 const useGoogleAuth = () => {
   const navigate = useNavigate();
@@ -19,12 +19,15 @@ const useGoogleAuth = () => {
           name: user.displayName,
         };
 
-        await googleSignIn(userData).unwrap();
+        const response = await googleSignIn(userData).unwrap();
+        console.log('User data saved or found:', response);
 
-        navigate("/home");
+        localStorage.setItem('userId', user.uid);
+
+        navigate('/home');
       }
     } catch (error) {
-      console.error("Error signing in with Google:", error);
+      console.error('Error signing in with Google:', error);
     }
   };
 
